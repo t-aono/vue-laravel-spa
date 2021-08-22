@@ -10,7 +10,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="id"
-              v-bind:value="taskId"
+              v-bind:value="task.id"
             />
           </div>
           <div class="form-group row border-bottom">
@@ -20,7 +20,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="title"
-              value="title title"
+              v-model="task.title"
             />
           </div>
           <div class="form-group row border-bottom">
@@ -30,7 +30,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="content"
-              value="content content"
+              v-model="task.content"
             />
           </div>
           <div class="form-group row border-bottom">
@@ -42,7 +42,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="person-in-charge"
-              value="Ichiro"
+              v-model="taks.person_in_charge"
             />
           </div>
         </form>
@@ -56,5 +56,20 @@ export default {
   props: {
     taskId: String,
   },
+  data() {
+    return {
+      task: []
+    }
+  },
+  methods: {
+    getTasks() {
+      axios.get('/api/tasks/' + this.taskId).then(res => {
+        this.tasks = res.data;
+      })
+    }
+  },
+  mounted() {
+    this.getTasks();
+  }
 };
 </script>
