@@ -42,7 +42,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="person-in-charge"
-              v-model="taks.person_in_charge"
+              v-model="task.person_in_charge"
             />
           </div>
         </form>
@@ -54,7 +54,7 @@
 <script>
 export default {
   props: {
-    taskId: String,
+    taskId: Number,
   },
   data() {
     return {
@@ -64,7 +64,7 @@ export default {
   methods: {
     getTasks() {
       axios.get('/api/tasks/' + this.taskId).then(res => {
-        this.tasks = res.data;
+        this.task = res.data;
       })
     }
   },
