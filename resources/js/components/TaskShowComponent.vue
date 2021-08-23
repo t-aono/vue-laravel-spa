@@ -10,7 +10,7 @@
               class="col-sm-9 form-control-plaintext"
               adonly
               id="id"
-              v-bind:value="task.id"
+              :value="task.id"
             />
           </div>
           <div class="form-group row border-bottom">
@@ -58,18 +58,18 @@ export default {
   },
   data() {
     return {
-      task: []
-    }
+      task: [],
+    };
   },
   methods: {
     getTasks() {
-      axios.get('/api/tasks/' + this.taskId).then(res => {
+      axios.get("/api/tasks/" + this.taskId).then((res) => {
         this.task = res.data;
-      })
-    }
+      });
+    },
   },
   mounted() {
     this.getTasks();
-  }
+  },
 };
 </script>

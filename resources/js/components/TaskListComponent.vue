@@ -19,17 +19,23 @@
           <td>{{ task.content }}</td>
           <td>{{ task.person_in_charge }}</td>
           <td>
-            <router-link :to="{name: 'task.show', params: {taskId: task.id}}">
+            <router-link
+              :to="{ name: 'task.show', params: { taskId: task.id } }"
+            >
               <button class="btn btn-primary">Show</button>
             </router-link>
           </td>
           <td>
-            <router-link :to="{name: 'task.edit', params: {taskId: task.id}}">
+            <router-link
+              :to="{ name: 'task.edit', params: { taskId: task.id } }"
+            >
               <button class="btn btn-success">Edit</button>
             </router-link>
           </td>
           <td>
-            <button class="btn btn-danger" @click="deleteTask(task.id)">Delete</button>
+            <button class="btn btn-danger" @click="deleteTask(task.id)">
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
@@ -41,25 +47,25 @@
 export default {
   data() {
     return {
-      tasks: []
-    }
+      tasks: [],
+    };
   },
   methods: {
     getTasks() {
-      axios.get('/api/tasks').then(res => {
+      axios.get("/api/tasks").then((res) => {
         this.tasks = res.data;
-      })
+      });
     },
     deleteTask(id) {
-      if (confirm('Do you want to delete?')) {
-        axios.delete('/api/tasks/' + id).then(() => {
+      if (confirm("Do you want to delete?")) {
+        axios.delete("/api/tasks/" + id).then(() => {
           this.getTasks();
         });
       }
-    }
+    },
   },
   mounted() {
     this.getTasks();
-  }
+  },
 };
 </script>
