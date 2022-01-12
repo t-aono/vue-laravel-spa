@@ -9,7 +9,9 @@
 - The front end is built with Vue.js and the band end is built with Laravel.
 - The database uses SQLite.
 
-<!-- ## Demo -->
+## Demo
+
+![fhB1lvLHdCJTKnP0BfKs1641953139-1641953204](https://user-images.githubusercontent.com/46856574/149051133-38cc2419-783d-4da9-a822-b12f4d03908b.gif)
 
 <!-- ## VS. -->
 
@@ -18,7 +20,7 @@
 ## Usage
 Launch locally
 
-1. Set sqlite in .env and create database.sqlite
+1. Set sqlite in `.env` and create database.sqlite
 2. `composer install`
 3. `npm install && npm run dev`
 
